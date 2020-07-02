@@ -1,0 +1,7 @@
+if get_int is true
+    do
+    {
+        printf("#\n");
+    }
+    while(int >= 1 && int<=8)
+
