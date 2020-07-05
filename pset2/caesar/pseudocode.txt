@@ -1,0 +1,16 @@
+Make implement program to take argument in comand-line
+if no arguments
+    print error and return from main 1
+if no decimal digit
+    print "Usage: ./caesar key and return main 1
+if k too big to fit int
+    recall an int can overflow
+
+promt the user for a string
+    output plaintext get_string
+
+Iterate over each character of the plaintext:
+    If it is an uppercase letter, rotate it, preserving case, then print out the rotated character
+    If it is a lowercase letter, rotate it, preserving case, then print out the rotated character
+    If it is neither, print out the character as is
+Print a newline
