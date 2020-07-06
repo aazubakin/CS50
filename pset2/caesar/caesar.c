@@ -9,8 +9,7 @@ int main(int argc, string argv[])
     //check number command-line arguments
     if (argc == 2)
     {
-        printf("Success\n");
-        printf("%s\n", argv[1]);
+        
         int i = 0;
         bool is_num;
         int num;
@@ -29,14 +28,47 @@ int main(int argc, string argv[])
         if (is_num == true)
         {
             num = atoi(argv[1]);
-            printf("Num is %i\n", num);
-        } else 
+            //if all conditions is ok do cipher of incript the message plaintext
+            char c;
+            int index_c;
+            int index_h;
+            string p_text = get_string("plaintext: ");
+            printf("ciphertext: ");
+            for (i = 0; p_text[i] != '\0'; i++)
+            {
+                if (p_text[i] >= 65 && p_text[i] <= 90)
+                {
+                    index_c = p_text[i] - 65;
+                    index_c = (index_c + num) % 26;
+                    index_c = index_c + 65;
+                    //printf("%i", index_c);
+                    c = (char)index_c;
+                    printf("%c", c);
+                } 
+                if (p_text[i] >= 97 && p_text[i] <= 122)
+                {
+                    index_c = p_text[i] - 97;
+                    index_c = (index_c + num) % 26;
+                    index_c = index_c + 97;
+                    //printf("%i", index_c);
+                    c = (char)index_c;
+                    printf("%c", c);
+                }
+                if (isalpha(p_text[i]) == false) //if not alphabetic live charachter as is
+                {
+                    printf("%c", p_text[i]);
+                }
+            }
+            printf("\n");
+        } else //if not a number or there are not digit
         {
-           printf("Usage: ./caesar 23key\n");
+           printf("Usage: ./caesar key\n");
+           return 1;
         }
     }
     if (argc==1 || argc > 2)
     {
         printf("Usage: ./caesar key\n");
+        return 1;
     }
 }
