@@ -6,8 +6,7 @@
 
 int main(int argc, string argv[])
 {
-    //check number command-line arguments
-    if (argc == 2)
+    if (argc == 2) //check number command-line arguments should be 2
     {
         
         int i = 0;
@@ -16,16 +15,17 @@ int main(int argc, string argv[])
         while (argv[1][i] != '\0') 
         {
             num = isdigit(argv[1][i]);
-            if (num != 0) 
+            if (num != 0) // isdigit check if number return number, if not return 0
             {
                 is_num = true;
-            } else 
+            } 
+            else 
             {
                 is_num = false;
             }
             i++;
         }
-        if (is_num == true)
+        if (is_num == true) //all checks are done these is main code
         {
             num = atoi(argv[1]);
             //if all conditions is ok do cipher of incript the message plaintext
@@ -36,7 +36,7 @@ int main(int argc, string argv[])
             printf("ciphertext: ");
             for (i = 0; p_text[i] != '\0'; i++)
             {
-                if (p_text[i] >= 65 && p_text[i] <= 90)
+                if (p_text[i] >= 65 && p_text[i] <= 90) //checkeing if uppercase
                 {
                     index_c = p_text[i] - 65;
                     index_c = (index_c + num) % 26;
@@ -45,7 +45,7 @@ int main(int argc, string argv[])
                     c = (char)index_c;
                     printf("%c", c);
                 } 
-                if (p_text[i] >= 97 && p_text[i] <= 122)
+                if (p_text[i] >= 97 && p_text[i] <= 122) //checking if lowcase
                 {
                     index_c = p_text[i] - 97;
                     index_c = (index_c + num) % 26;
@@ -60,13 +60,14 @@ int main(int argc, string argv[])
                 }
             }
             printf("\n");
-        } else //if not a number or there are not digit
+        } 
+        else //if not a number or there are not digit
         {
-           printf("Usage: ./caesar key\n");
-           return 1;
+            printf("Usage: ./caesar key\n");
+            return 1;
         }
     }
-    if (argc==1 || argc > 2)
+    if (argc == 1 || argc > 2)
     {
         printf("Usage: ./caesar key\n");
         return 1;
